@@ -1,0 +1,19 @@
+server:
+  port: 9191
+
+# 通用组件设置
+zyx:
+  wrench:
+    config:
+      system: test-system
+      register:
+        # redis host:
+        host: 82.156.248.227
+        # redis port:
+        port: 16379
+
+# 日志
+logging:
+  level:
+    root: info
+  config: classpath:logback-spring.xml

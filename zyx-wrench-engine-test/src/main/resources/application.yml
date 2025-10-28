@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: zyx-wrench-engine-test-app
+  profiles:
+    active: dev
