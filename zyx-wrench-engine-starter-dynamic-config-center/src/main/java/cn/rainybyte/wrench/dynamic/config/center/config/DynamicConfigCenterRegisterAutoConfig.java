@@ -24,6 +24,7 @@ import org.springframework.context.annotation.Configuration;
 public class DynamicConfigCenterRegisterAutoConfig {
     private final Logger log = LoggerFactory.getLogger(DynamicConfigCenterRegisterAutoConfig.class);
 
+    // 初始化Redis客户端
     @Bean("zyxWrenchRedissonClient")
     public RedissonClient redissonClient(DynamicConfigCenterRegisterAutoProperties properties) {
         Config config = new Config();
@@ -44,22 +45,25 @@ public class DynamicConfigCenterRegisterAutoConfig {
 
         RedissonClient redissonClient = Redisson.create(config);
 
-        log.info("zyx-wrench，注册器（redis）链接初始化完成。{} {} {}",
+        log.info("zyx-wrench-engine，注册器（redis）链接初始化完成。{} {} {}",
                 properties.getHost(), properties.getPoolSize(), !redissonClient.isShutdown());
 
         return redissonClient;
     }
 
+    // 动态配置中心服务（封装属性的动态获取与变更）
     @Bean
     public IDynamicConfigCenterService dynamicConfigCenterService(DynamicConfigCenterAutoProperties dynamicConfigCenterAutoProperties, RedissonClient zyxWrenchRedissonClient){
         return new DynamicConfigCenterService(dynamicConfigCenterAutoProperties, zyxWrenchRedissonClient);
     }
 
+    // 属性变更监听器（监听配置变更事件）
     @Bean
     public DynamicConfigCenterAdjustListener dynamicConfigCenterAdjustListener(IDynamicConfigCenterService dynamicConfigCenterService){
         return new DynamicConfigCenterAdjustListener(dynamicConfigCenterService);
     }
 
+    // Redis发布订阅（实现分布式属性变更的消息推送与监听）
     @Bean(name = "dynamicConfigCenterRedisTopic")
     public RTopic threadPoolConfigAdjustListener(DynamicConfigCenterAutoProperties autoProperties,
                                                  RedissonClient client,

@@ -31,7 +31,7 @@ public class ApiTest {
     @Test
     public void test_publish() throws InterruptedException{
         // 推送
-        dynamicConfigCenterRedisTopic.publish(new AttributeVO("downgradeSwitch", "1"));
+        dynamicConfigCenterRedisTopic.publish(new AttributeVO("downgradeSwitch", "6"));
 
         new CountDownLatch(1).await();
     }

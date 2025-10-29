@@ -54,6 +54,11 @@
             <artifactId>zyx-wrench-engine-starter-dynamic-config-center</artifactId>
             <version>1.0</version>
         </dependency>
+        <dependency>
+            <groupId>cn.rainybyte</groupId>
+            <artifactId>zyx-wrench-engine-starter-design-framework</artifactId>
+            <version>1.0</version>
+        </dependency>
     </dependencies>
 
     <build>

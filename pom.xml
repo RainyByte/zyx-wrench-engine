@@ -11,6 +11,8 @@
     <modules>
         <module>zyx-wrench-engine-starter-dynamic-config-center</module>
         <module>zyx-wrench-engine-test</module>
+        <module>zyx-wrench-engine-starter-design-framework</module>
+        <module>zyx-wrench-engine-bom</module>
     </modules>
 
     <properties>
