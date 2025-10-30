@@ -13,6 +13,7 @@
         <module>zyx-wrench-engine-test</module>
         <module>zyx-wrench-engine-starter-design-framework</module>
         <module>zyx-wrench-engine-bom</module>
+        <module>zyx-wrench-engine-starter-rate-limiter</module>
     </modules>
 
     <properties>

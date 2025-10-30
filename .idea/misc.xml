@@ -10,6 +10,7 @@
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/zyx-engine-test/pom.xml" />
+        <option value="$PROJECT_DIR$/zyx-wrench-engine-rate-limiter/pom.xml" />
       </set>
     </option>
   </component>

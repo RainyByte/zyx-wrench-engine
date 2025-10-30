@@ -1,0 +1,1 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=an.rainybyte.wrench.rate.limiter.config.RateLimiterAutoConfig
